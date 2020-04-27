@@ -35,14 +35,14 @@ const typePokemon = () => {
         promises.push(fetch(url).then((res) => res.json()));
     }
     Promise.all(promises).then((results) => {
-        const pokemon = results.map((result) => (
+        const pokemon = results.map((data) => (
         {
-            name: result.name,
-            id: result.id,
-            image: result.sprites['front_default'],
-            type: result.types.map((type) => type.type.name).join(', '),
-            height: result.height/10,
-            weight: result.weight/10
+            name: data.name,
+            id: data.id,
+            image: data.sprites['front_default'],
+            type: data.types.map((type) => type.type.name).join(', '),
+            height: data.height/10,
+            weight: data.weight/10
         })).sort((a, b) => a.type > b.type ? 1 : -1);
         displayPokemon(pokemon);
     });
@@ -56,14 +56,14 @@ const heightPokemon = () => {
         promises.push(fetch(url).then((res) => res.json()));
     }
     Promise.all(promises).then((results) => {
-        const pokemon = results.map((result) => (
+        const pokemon = results.map((data) => (
         {
-            name: result.name,
-            id: result.id,
-            image: result.sprites['front_default'],
-            type: result.types.map((type) => type.type.name).join(', '),
-            height: result.height/10,
-            weight: result.weight/10
+            name: data.name,
+            id: data.id,
+            image: data.sprites['front_default'],
+            type: data.types.map((type) => type.type.name).join(', '),
+            height: data.height/10,
+            weight: data.weight/10
         })).sort((a, b) => a.height > b.height ? 1 : -1);
         displayPokemon(pokemon);
     });
@@ -77,14 +77,14 @@ const weightPokemon = () => {
         promises.push(fetch(url).then((res) => res.json()));
     }
     Promise.all(promises).then((results) => {
-        const pokemon = results.map((result) => (
+        const pokemon = results.map((data) => (
         {
-            name: result.name,
-            id: result.id,
-            image: result.sprites['front_default'],
-            type: result.types.map((type) => type.type.name).join(', '),
-            height: result.height/10,
-            weight: result.weight/10
+            name: data.name,
+            id: data.id,
+            image: data.sprites['front_default'],
+            type: data.types.map((type) => type.type.name).join(', '),
+            height: data.height/10,
+            weight: data.weight/10
         })).sort((a, b) => a.weight > b.weight ? 1 : -1);
         displayPokemon(pokemon);
     });
